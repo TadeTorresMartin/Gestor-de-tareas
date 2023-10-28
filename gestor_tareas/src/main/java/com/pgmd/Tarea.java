@@ -8,12 +8,15 @@ import java.util.Scanner;
 
 public class Tarea{
     Scanner input = new Scanner(System.in);
-    File archivo = new File("D:\\java\\gestor_tareas\\src\\main\\resources\\tareas.txt");
+    File archivo = new File("src\\main\\resources\\tareas.txt");
     LocalDate fecha = LocalDate.now();
     DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM");
     String con_formato = fecha.format(formato);
 
     public Tarea() throws IOException {
+        if(!archivo.exists()){
+            archivo.createNewFile();
+        }
     }
 
     public void limpiarBuffer() {
